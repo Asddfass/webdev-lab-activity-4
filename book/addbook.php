@@ -18,6 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         $errors["title"] = "TITLE IS REQUIRED!!!";
     }
+    elseif ($bookObj->doesBookExist($book["title"]))
+    {
+        $errors["title"] = "Book title already exist.";
+    }
 
     if (empty($book["author"]))
     {

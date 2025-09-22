@@ -57,4 +57,25 @@ class book
             return null;
         }
     }
+
+    public function doesBookExist($bookTitle)
+    {
+        $sql = "SELECT COUNT(*) as total FROM book WHERE title = :title";
+        $query = $this->db->connect()->prepare($sql);
+        $query->bindParam(":title", $bookTitle);
+        $record = null;
+        if ($query->execute()) 
+        {
+            $record = $query->fetch();
+        }
+
+        if($record["total"] > 0)
+        {
+            return true;
+        } 
+        else 
+        {
+            return false;
+        }
+    }
 }
