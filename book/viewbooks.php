@@ -24,14 +24,16 @@ if ($_SERVER["REQUEST_METHOD"] == "GET")
 
     <form action="" method="GET">
     <br>
-    <input type="text" name="search" value="<?= $search ?>">
+    <label for="">Search</label>
+    <input type="text" name="search" value="<?= $search ?>"><br>
+    <label for="">Filter by genre</label>
     <select name="genre" id="genre">
-            <option value="">--SELECT GENRE--</option>
+            <option value="">--ALL--</option>
             <option value="History" <?= ($genre == "History")? "selected": ""?> >History</option>
             <option value="Science" <?= ($genre == "Science")? "selected": ""?> >Science</option>
             <option value="Fiction" <?= ($genre == "Fiction")? "selected": ""?> >Fiction</option>
     </select>
-    <input type="submit">
+    <input type="submit" value="Search">
     </form>
     
     <h1>List of Books</h1>
