@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         $errors["publication"] = "PUBLICATION YEAR IS REQUIRED!!!";
     }
-    else if (!is_numeric($book["publication"]) || $book["publication"] > date("Y"))
+    else if (!is_numeric($book["publication"]) && $book["publication"] > date("Y"))
     {
         $errors["publication"] = "PUBLICATION YEAR MUST BE A NUMBER AND CANNOT BE IN THE FUTURE!!!";
     }
@@ -106,4 +106,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         <input type="submit">
     </form>
 </body>
+
 </html>
